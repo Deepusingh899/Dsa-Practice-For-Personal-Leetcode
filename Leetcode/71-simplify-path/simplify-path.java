@@ -16,12 +16,14 @@ class Solution {
         // while(!s.isEmpty()){
         //     System.out.println(s.pop());
         // }
-        StringBuilder sb=new StringBuilder();
+        // StringBuilder sb=new StringBuilder();
+        String str="";
         while(!s.isEmpty()){
-            sb.insert(0,"/"+s.pop());
+            // sb.append("/"+s.pop());
+            str="/"+s.pop()+str;
         }
-        if(sb.length()==0) return "/";
-        else return sb.toString();
+        if(str.length()==0) return "/";
+        else return str;
     // return path;
     }
     // return 
