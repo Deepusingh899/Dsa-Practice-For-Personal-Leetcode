@@ -4,27 +4,17 @@ class Solution {
 
         Stack<String> s=new Stack<>();
         for(String str:strStruct){
-            // System.out.println(str);
             if(str.equals("") || str.equals(".")) continue;
             if(str.equals("..")){
-                if(!s.isEmpty()){
-                    s.pop();
-                }
+                if(!s.isEmpty()) s.pop();
             }
             else  s.push(str);
         }
-        // while(!s.isEmpty()){
-        //     System.out.println(s.pop());
-        // }
-        // StringBuilder sb=new StringBuilder();
-        String str="";
+        StringBuilder sb=new StringBuilder();
         while(!s.isEmpty()){
-            // sb.append("/"+s.pop());
-            str="/"+s.pop()+str;
+            sb.insert(0,"/"+s.pop());
         }
-        if(str.length()==0) return "/";
-        else return str;
-    // return path;
+        if(sb.length()==0) return "/";
+        else return sb.toString();
     }
-    // return 
 }
