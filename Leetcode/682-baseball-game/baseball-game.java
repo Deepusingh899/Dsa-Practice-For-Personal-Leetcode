@@ -1,6 +1,5 @@
 class Solution {
     public int calPoints(String[] operations) {
-        System.out.println(Integer.parseInt("-2"));
         List<Integer> list=new ArrayList<>();
         for(int i=0;i<operations.length;i++){
             if(list.size()>0 && "C".equals(operations[i])){
