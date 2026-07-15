@@ -10,7 +10,6 @@ class Solution {
                 q.remove();
             }
         }
-        System.out.println(q);
         if(q.isEmpty()) return -1;
         return s.indexOf((char)(97+q.peek()));
     }
