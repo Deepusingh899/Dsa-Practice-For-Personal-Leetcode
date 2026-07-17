@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 class Solution {
      public static int[] nextSmaller(int arr[]){
         int[] nextSmaller=new int[arr.length];
