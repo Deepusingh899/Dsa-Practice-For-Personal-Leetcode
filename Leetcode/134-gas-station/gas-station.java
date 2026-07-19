@@ -7,6 +7,10 @@ class Solution {
         for(int i=0;i<gas.length;i++){
             totalGas+=gas[i];
             totalCost+=cost[i];
+        }
+        for(int i=0;i<gas.length;i++){
+            totalGas+=gas[i];
+            totalCost+=cost[i];
             currGas+=gas[i]-cost[i];
             if(currGas<0){
                 start=i+1;
