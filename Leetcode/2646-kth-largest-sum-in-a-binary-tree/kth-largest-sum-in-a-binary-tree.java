@@ -15,25 +15,21 @@
  */
 class Solution {
     public long kthLargestLevelSum(TreeNode root, int k) {
-        long sum=0;
         Queue<TreeNode> q=new LinkedList<>();
         PriorityQueue<Long> pq=new PriorityQueue<>();
         q.add(root);
-        q.add(null);
         while(!q.isEmpty()){
-            TreeNode node=q.remove();
-            if(node==null){
-                pq.add(sum);
-                sum=0;
-                if(pq.size()>k) pq.poll();
-                if(q.isEmpty()) break;
-                else q.add(null);
-                
-            }else{
+            int size=q.size();
+            long sum=0;
+            for(int i=0;i<size;i++){
+                TreeNode node=q.remove();
                 sum+=node.val;
                 if(node.left!=null) q.add(node.left);
                 if(node.right!=null) q.add(node.right);
             }
+            pq.add(sum);
+            if(pq.size()>k) pq.poll();
+            
         }
         return pq.size()<k ? -1 : pq.poll();
     }
