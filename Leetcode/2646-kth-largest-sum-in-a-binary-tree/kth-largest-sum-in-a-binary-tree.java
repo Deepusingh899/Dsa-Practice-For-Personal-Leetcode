@@ -25,20 +25,16 @@ class Solution {
             if(node==null){
                 pq.add(sum);
                 sum=0;
+                if(pq.size()>k) pq.poll();
                 if(q.isEmpty()) break;
                 else q.add(null);
+                
             }else{
                 sum+=node.val;
                 if(node.left!=null) q.add(node.left);
                 if(node.right!=null) q.add(node.right);
             }
         }
-        System.out.println(pq.size());
-        int size=pq.size();
-        if(k>size) return -1;
-        for(int i=0;i<size-k;i++){
-            System.out.println(pq.poll());
-        }
-        return pq.poll();
+        return pq.size()<k ? -1 : pq.poll();
     }
 }
