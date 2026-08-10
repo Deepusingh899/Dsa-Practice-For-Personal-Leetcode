@@ -20,20 +20,17 @@ class Solution {
         Queue<TreeNode> q=new LinkedList<>();
         if(root==null)return list;
         q.add(root);
-        q.add(null);
         li=new ArrayList<>();
         while(!q.isEmpty()){
-            TreeNode currNode=q.remove();
-            if(currNode==null){
-                list.add(li);
-                li=new ArrayList<>();
-                if(q.isEmpty()) break;
-                else q.add(null);
-            }else{
+            int size=q.size();
+            li=new ArrayList<>();
+            for(int i=0;i<size;i++){
+                TreeNode currNode=q.remove();
                 li.add(currNode.val);
                 if(currNode.left!=null) q.add(currNode.left);
                 if(currNode.right!=null) q.add(currNode.right);
             }
+            list.add(li);
         }
 
         return list;
