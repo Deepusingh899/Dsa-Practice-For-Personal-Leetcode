@@ -15,23 +15,21 @@
  */
 class Solution {
     int poIdx;
+    HashMap<Integer,Integer> map=new HashMap<>();
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        poIdx=postorder.length-1;
-        return binaryTree(inorder,postorder,0,inorder.length-1);        
+        poIdx=postorder.length-1;        
+        for(int i=0;i<inorder.length;i++){
+            map.put(inorder[i],i);
+        }
+        return binaryTree(postorder,0,inorder.length-1);        
     }
-    public TreeNode binaryTree(int[] inorder,int[] postorder,int left,int right){
+    public TreeNode binaryTree(int[] postorder,int left,int right){
         if(left>right) return null;
         TreeNode root=new TreeNode(postorder[poIdx]);
         poIdx--;
-        int inIdx=search(inorder,root.val,left,right);
-        root.right=binaryTree(inorder,postorder,inIdx+1,right);
-        root.left=binaryTree(inorder,postorder,left,inIdx-1);;
+        int inIdx=map.get(root.val);
+        root.right=binaryTree(postorder,inIdx+1,right);
+        root.left=binaryTree(postorder,left,inIdx-1);;
         return root;
-    }
-    public int search(int[] inorder,int val,int left,int right){
-        for(int i=left;i<=right;i++){
-            if(inorder[i]==val) return i;
-        }
-        return -1;
     }
 }
