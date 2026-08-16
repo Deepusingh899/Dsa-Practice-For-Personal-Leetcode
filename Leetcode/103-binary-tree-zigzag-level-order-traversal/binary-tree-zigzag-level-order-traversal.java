@@ -19,30 +19,26 @@ class Solution {
         if(root==null) return list;
         Deque<TreeNode> q=new ArrayDeque<>();
         q.addFirst(root);
-        int level=0;
+        boolean reverse=false;
         while(!q.isEmpty()){
             int size=q.size();
             List<Integer> li=new ArrayList<>();
-            if(level%2==0){
-                for(int i=0;i<size;i++){
+            for(int i=0;i<size;i++){
+                if(!reverse){
                     TreeNode node=q.removeFirst();
                     li.add(node.val);
                     if(node.left!=null) q.addLast(node.left);
                     if(node.right!=null) q.addLast(node.right);
-                }
-            }else{
-                for(int i=0;i<size;i++){
+                }else{
                     TreeNode node=q.removeLast();
                     li.add(node.val);
                     if(node.right!=null) q.addFirst(node.right);
                     if(node.left!=null) q.addFirst(node.left);
-                    
                 }
             }
-            level++;
+            reverse=!reverse;
             list.add(li);
-        }
-        
+        }        
         return list;
     }
 }
