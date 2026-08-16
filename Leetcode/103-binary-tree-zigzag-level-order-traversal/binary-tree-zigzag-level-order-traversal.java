@@ -23,17 +23,20 @@ class Solution {
         while(!q.isEmpty()){
             int size=q.size();
             List<Integer> li=new ArrayList<>();
-            for(int i=0;i<size;i++){
-                if(level%2==0){
+            if(level%2==0){
+                for(int i=0;i<size;i++){
                     TreeNode node=q.removeFirst();
                     li.add(node.val);
                     if(node.left!=null) q.addLast(node.left);
                     if(node.right!=null) q.addLast(node.right);
-                }else{
+                }
+            }else{
+                for(int i=0;i<size;i++){
                     TreeNode node=q.removeLast();
                     li.add(node.val);
                     if(node.right!=null) q.addFirst(node.right);
                     if(node.left!=null) q.addFirst(node.left);
+                    
                 }
             }
             level++;
