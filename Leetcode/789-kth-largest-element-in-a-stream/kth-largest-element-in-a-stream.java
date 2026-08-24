@@ -4,8 +4,12 @@ class KthLargest {
     public KthLargest(int k, int[] nums) {
         this.k=k;
         for(int i=0;i<nums.length;i++){
-            pq.offer(nums[i]);
-            if(pq.size()>k) pq.poll();
+            if(pq.size()<k){
+                pq.offer(nums[i]);
+            }else if(nums[i]>pq.peek()){
+                pq.offer(nums[i]);
+                pq.poll();
+            }
         }
         
     }
