@@ -25,7 +25,6 @@ public class Codec {
             q.add(node.left);
             q.add(node.right);
         }
-        System.out.print("Serliaze :- "+sb.toString());
         return sb.toString();        
     }
 
