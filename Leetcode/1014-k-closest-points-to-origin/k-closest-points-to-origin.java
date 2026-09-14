@@ -8,7 +8,7 @@ class Solution {
         }
         @Override
         public int compareTo(Closest cl){
-            return cl.dist-this.dist;
+            return this.dist-cl.dist;
         }
     }
     public int[][] kClosest(int[][] points, int k) {
@@ -18,10 +18,12 @@ class Solution {
             int b=num[1];
             int dist=a*a+b*b;
             pq.add(new Closest(num,dist));
-            if(pq.size()>k){
-                pq.poll();
-            }
+            
         }
+        // while(!pq.isEmpty()){
+        //     System.out.println(pq.peek().arr + " "+pq.peek().dist);
+        //     pq.poll();
+        // }
         int [][]nums=new int[k][];
         for(int i=0;i<k;i++){
             nums[i]=pq.poll().arr;
