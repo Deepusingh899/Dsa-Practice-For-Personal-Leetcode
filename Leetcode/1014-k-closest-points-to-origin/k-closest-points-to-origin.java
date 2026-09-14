@@ -28,9 +28,4 @@ class Solution {
         }
         return nums;
     }
-     public int dist(int arr[]){
-            int a=arr[0];
-            int b=arr[1];
-            return a*a+b*b;
-        }
 }
