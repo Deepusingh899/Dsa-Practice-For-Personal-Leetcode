@@ -5,12 +5,12 @@ class Solution {
         for(int i=0;i<ch.length;i++){
             map.put(ch[i],map.getOrDefault(ch[i],0)+1);
         } 
-        PriorityQueue<Map.Entry<Character,Integer>> pq= new PriorityQueue<>((a,b) -> b.getValue()-a.getValue());
-        pq.addAll(map.entrySet());
+        PriorityQueue<Character> pq= new PriorityQueue<>((a,b) -> map.get(b)-map.get(a));
+        pq.addAll(map.keySet());
         StringBuilder sb=new StringBuilder();
         while(!pq.isEmpty()){
-            Map.Entry<Character,Integer> chara=pq.poll();
-            sb.append(String.valueOf(chara.getKey()).repeat(chara.getValue()));
+            char c=pq.poll();
+            sb.append(String.valueOf(c).repeat(map.get(c)));
         }
         return sb.toString();      
     }
