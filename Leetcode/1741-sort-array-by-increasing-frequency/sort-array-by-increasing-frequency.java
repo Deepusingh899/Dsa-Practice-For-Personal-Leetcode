@@ -8,13 +8,8 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             num[i]=nums[i];
         }
-        Arrays.sort(num,new Comparator<Integer>(){
-            public int compare(Integer a,Integer b){
-                int freqA=map.get(a);
-                int freqB=map.get(b);
-                if(freqA==freqB) return b-a;
-                else return freqA-freqB;
-            }
+        Arrays.sort(num,(a,b) -> {
+            return map.get(a)==map.get(b) ? b-a : map.get(a) - map.get(b);
         });
         //int []arr=new int[nums.length];
         for(int i=0;i<nums.length;i++){
