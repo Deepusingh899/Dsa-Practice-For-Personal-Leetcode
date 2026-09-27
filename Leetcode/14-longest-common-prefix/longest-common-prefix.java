@@ -24,11 +24,11 @@ class Solution {
         TrieNode curr=root;
         StringBuilder sb=new StringBuilder();
         while(curr!=null && curr.freq==1 && !curr.eow){
-            for(int i=0;i<26;i++){
-                char ch=(char)(i+'a');
-                if(curr.child[i]!=null){
+            for(char ch : word.toCharArray()){
+                int idx =ch-'a';
+                if(curr.child[idx]!=null){
                     sb.append(ch);
-                    curr=curr.child[i];
+                    curr=curr.child[idx];
                     break;
                 }
                 
