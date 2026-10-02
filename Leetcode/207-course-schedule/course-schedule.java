@@ -8,7 +8,7 @@ class Solution {
             list.get(pre[1]).add(pre[0]);
         }
         boolean[] vis=new boolean[numCourses];
-        boolean[] par=new boolean[numCourses];
+        boolean[] par= new boolean[numCourses];
         for(int i=0;i<numCourses;i++){
             if(!vis[i]){
                 if(dfs(list,vis,par,i)) return false;
