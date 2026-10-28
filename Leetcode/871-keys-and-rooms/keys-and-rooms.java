@@ -17,6 +17,5 @@ class Solution {
                 dfs(rooms,vis,des);
             }
         }
-        System.out.println(count);
     }
 }
